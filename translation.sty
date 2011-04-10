@@ -1,0 +1,47 @@
+\ProvidesPackage{translation}
+
+%Selects document language
+\newcommand{\translation}[1]{
+	\edef\@temp{\csname#1@name\endcsname}
+	\AtBeginDocument{
+	\expandafter\expandafter \expandafter\selectlanguage
+		\expandafter\csname
+			\csname#1@name\endcsname
+		\expandafter\endcsname
+	}
+}
+
+%Create an alias of the second argument named with the first argument
+\newcommand{\translationAlias}[2]{
+	%Defines the name corresponding to the aliased language (the original name)
+	\expandafter\edef\csname#1@name\endcsname{\csname#2@name\endcsname}
+	%Defines the command corresponding to the aliased language (the original name)
+	\expandafter\newcommand\expandafter{\csname#1\endcsname}[1]{\expandafter{\csname#2\endcsname{##1}}}
+}
+
+\DeclareOption*{
+	%Add the option as a language
+	\PassOptionsToPackage{\CurrentOption}{babel}
+	\edef\@currentLanguage{\CurrentOption}
+
+	%Defines the name corresponding to the current language (french, british, ...)
+	\expandafter\edef\csname\CurrentOption @name\endcsname{\expandafter\CurrentOption}
+	%Defines the command corresponding to the current language (\french, \british, ...)
+	\expandafter\edef\csname\CurrentOption\endcsname#1{%
+		\noexpand\iflanguage{\expandafter\CurrentOption}{#1}{}%
+	}%
+}
+\ProcessOptions*
+\ifx\@currentLanguage\@undefined
+	\PackageError{translation}{%
+		You haven't specified a language option}{%
+		You need to specify a language, either as a global option\MessageBreak
+		or as an optional argument to the \string\usepackage\space command; \MessageBreak
+		You shouldn't try to proceed from here, type x to quit.
+	}
+\fi
+
+\RequirePackage{babel}
+\AtBeginDocument{
+\translation{\@currentLanguage}
+}

@@ -1,0 +1,178 @@
+%%%%%%%%%%%%%%%%%
+% Date commands %
+%%%%%%%%%%%%%%%%%
+\newdateformat{experienceDate}{\monthname[\THEMONTH] \THEYEAR}
+
+\newcommand\currentJobEndDate{%
+	\french{actuel}%
+	\english{Current}%
+}
+
+\newcommand\experienceSpan{
+	\experienceDate\displaydate{\replacabledatename{experienceStart}} - %
+	\ifnum \getdateyear{\replacabledatename{experienceEnd}}=1%
+		\currentJobEndDate%
+	\else%
+		\experienceDate\displaydate{\replacabledatename{experienceEnd}}%
+	\fi%
+}
+
+
+%%%%%%%%%%
+% Zenika %
+%%%%%%%%%%
+\newreplacabledate{experienceStart}{1}{10}{2010}
+\newreplacabledate{experienceEnd}{1}{1}{1}
+
+\english{
+\cventry{\experienceSpan}{Java/JEE/Spring developer}{Zenika}{Paris}{France}{
+	\begin{itemize}
+		\item Working with Spring technologies:
+		\begin{itemize}
+			\item Spring IOC, Spring AOP, Spring DAO
+			\item Studied an AMQP broker, RabbitMQ and published blog posts on its administration and usage: \httplink[Blog Zenika AMQP (fr)]{http://blog.zenika.com/index.php?tag/amqp}
+		\end{itemize}
+		\item Participated in the USI challenge: \httplink[Octo - Challenge USI 2011]{https://sites.google.com/a/octo.com/challengeusi2011/}
+		\begin{itemize}
+			\item Created an application able to handle the load of one million users simultaneously connected, and a total population of one billion users.
+			\item The application uses long polling and a data-grid and is based on the SpringSource/VMware vFabric stack.
+		\end{itemize}
+		\item Participated in the DORM european project:
+		\begin{itemize}
+			\item Integration of CUDF system to handle dependencies solving conflicts.
+			\item Creation of a metadata format adapted to dependency management.
+			\item Establishing a mirroring structure between repositories in a star network.
+		\end{itemize}
+	\end{itemize}
+}
+}
+
+\french{
+\cventry{\experienceSpan}{Développeur Java/JEE/Spring}{Zenika}{Paris}{France}{
+	\begin{itemize}
+		\item Formation sur les technologies Spring :
+		\begin{itemize}
+			\item Spring IOC, Spring AOP, Spring DAO
+			\item Etude d'un broker AMQP, RabbitMQ et publication de blogs sur son administration et fonctionnement : \httplink[Blog Zenika AMQP (fr)]{http://blog.zenika.com/index.php?tag/amqp}
+		\end{itemize}
+		\item Participation au concours USI : \httplink[Octo - Concours USI 2011]{https://sites.google.com/a/octo.com/challengeusi2011/}
+		\begin{itemize}
+			\item Création d'une application devant supporter la charge d'un million d'utilisateurs connectés simultanément et un total d'un milliard d'utilisateurs.
+			\item L'application utilise du long polling et une data-grid et se base sur la pile applicative SpringSource/VMWare vFabric
+		\end{itemize}
+		\item Participation à l'étude du projet européen DORM :
+		\begin{itemize}
+			\item Integration du format CUDF pour la gestion des conflits de dépendances.
+			\item Création d'un format de métadata adapté à la gestion de dépendances.
+			\item Mise en place d'une architecture de réplication des dépôts sur un réseau en étoile.
+		\end{itemize}
+	\end{itemize}
+}
+}
+
+
+%%%%%%%%%%%
+% Supinfo %
+%%%%%%%%%%%
+\newreplacabledate{experienceStart}{1}{9}{2008}
+\newreplacabledate{experienceEnd}{1}{1}{1}
+%\newreplacabledate{experienceEnd}{1}{6}{2011}
+
+\english{
+\cventry{\experienceSpan}{Supinfo Sun Certified Trainer}{SUPINFO - The International Institute of Information Technology}{}{France}{
+	Teaching Java/JEE to MSc IT students (up to 80 students during a lecture).
+	\begin{itemize}
+		\item Training second year students for SCJA and SCJP certifications:
+		\begin{itemize}
+			\item First steps in Java - IDE, Tools, Object Oriented Programming, Design patterns
+			\item Java SE - Syntax, Collection, Generics, Threads, I/O, Sockets, JDBC, Swing, Look and Feel
+		\end{itemize}
+		\item Training third year students for SCWCD and SCMAD certifications:
+		\begin{itemize}
+			\item Java and the web - Tomcat, Servlets, JSP, JSTL, Struts 1.2
+			\item Java Mobile - Java ME principles, CLDC, MIDP
+		\end{itemize}
+		\item Training forth year students for the SCBCD certification:
+		\begin{itemize}
+			\item Service oriented architectures - JEE, Web services, ORM, JPA, Glassfish, JMS
+			\item Web applications - JSF, Richfaces, Facelets
+		\end{itemize}
+	\end{itemize}
+}
+}
+
+\french{
+\cventry{\experienceSpan}{Supinfo Sun Certified Trainer}{SUPINFO - The International Institute of Information Technology}{}{France}{
+	Formateur Java/JEE pour des étudiants de master (jusqu'à 80 étudiants par cours).
+	\begin{itemize}
+		\item Formation des deuxième années (L2) aux certifications SCJA et SCJP :
+		\begin{itemize}
+			\item Premiers pas en Java - IDE, Tools, Object Oriented Programming, Design patterns
+			\item Java SE - Syntaxe, Collection, Generics, Threads, I/O, Sockets, JDBC, Swing, Look and Feel
+		\end{itemize}
+		\item Formation des troisième années (L3) aux certifications SCWCD et SCMAD :
+		\begin{itemize}
+			\item Java et le web - Tomcat, Servlets, JSP, JSTL, Struts 1.2
+			\item Java Mobile - les bases de Java ME, CLDC, MIDP
+		\end{itemize}
+		\item Formation des quatrième années (M1) à la certification SCBCD :
+		\begin{itemize}
+			\item Architectures orientées service - JEE, Web services, ORM, JPA, Glassfish, JMS
+			\item Applications web - JSF, Richfaces, Facelets
+		\end{itemize}
+	\end{itemize}
+}
+}
+
+
+%%%%%%%%
+% Bull %
+%%%%%%%%
+\newreplacabledate{experienceStart}{1}{7}{2009}
+\newreplacabledate{experienceEnd}{1}{10}{2010}
+
+\english{
+\cventry{\experienceSpan}{Java/JEE Developer}{Bull SAS}{Marseille}{France}{
+	City of Marseilles' project - Integration of a unified financial management solution for the city of Marseilles {\em(4 months)}
+	\begin{itemize}
+		\item Studying and establishing a unique authentication system across different components of the solution.
+		\begin{itemize}
+			\item Set up a Central Authentication Service server (CAS, Jasig)
+			\item Create a customized connector to LDAP and a MySQL database
+			\item Install the connection system on GateIn (Exo), Alfresco and Coriolis (Bull)
+		\end{itemize}
+	\end{itemize}
+	Lefebvre's project - Developing a platform for member management of Congés Spectacles {\em(1 year and 4 months)}
+	\begin{itemize}
+		\item Creating and integrating an additional module to OpenIris Finance (Lefebvre Software) to add management of members, their contribution and their holidays.
+		\begin{itemize}
+			\item Application conception - UML with Enterprise Architect (Sparx Systems)
+			\item Business and views layers - EJB \& Hibernate, JSP \& Struts
+			\item Build and deployment processes - Ant \& Ivy
+		\end{itemize}
+	\end{itemize}
+}
+}
+
+\french{ 
+\cventry{\experienceSpan}{Développeur  Java/JEE}{Bull SAS}{Marseille}{France}{
+	Projet ville de Marseille - Integration d'une solution de gestion financière unifiée pour la ville de Marseille {\em(4 mois)}
+	\begin{itemize}
+		\item Etude et mise en place d'un système d'authentification unique au travers des différents composants de la solution.
+		\begin{itemize}
+			\item Installation d'un Central Authentication Service server (CAS, Jasig)
+			\item Création d'un connecteur personnalisé vers du LDAP et une base de données MyQSL
+			\item Intégration du système de connection dans GateIn (Exo), Alfresco et Coriolis (Bull)
+		\end{itemize}
+	\end{itemize}
+	Projet Lefebvre - Développement d'une plateforme de gestion des adhérents de Congés Spectacles {\em(1 an et 4 mois)}
+	\begin{itemize}
+		\item Création et intégration d'un module additionnel à OpenIris Finance (Lefebvre Software) pour ajouter la gestion des adhérents, de leurs cotisations et leurs congés.
+		\begin{itemize}
+			\item Conception de l'application - UML avec Enterprice Architect (Sparx Systems)
+			\item Couches métier et vue - EJB \& Hibernate, JSP \& Struts
+			\item Processus de compilation et déploiement - Ant \& Ivy
+		\end{itemize}
+	\end{itemize}
+}
+}

@@ -1,0 +1,22 @@
+%%%%%%%%%%%%%%%%%%%%
+% Increases second %
+%   column width   %
+%%%%%%%%%%%%%%%%%%%%
+\renewcommand*{\cvlanguage}[3]{%
+  \cvline{#1}{\begin{minipage}[t]{0.5\maincolumnwidth}\textbf{#2}\end{minipage}\hfill\begin{minipage}[t]{0.5\maincolumnwidth}\raggedleft\footnotesize\itshape #3\end{minipage}}}
+
+%%%%%%%%%%%%%
+% Languages %
+%%%%%%%%%%%%%
+
+\french{
+	\cvlanguage{Français}{Langue maternelle}{Lu, parlé, écrit}
+	\cvlanguage{Anglais}{Compétence professionnelle}{Lu, parlé, écrit}
+	\cvlanguage{Espagnol}{Notions}{Lu et parlé}
+}
+
+\english{
+	\cvlanguage{English}{Professional working proficiency}{Reading, speaking and writing}
+	\cvlanguage{French}{Native}{Reading, speaking and writing}
+	\cvlanguage{Spanish}{Elementary proficiency}{Reading and speaking}
+}

@@ -1,0 +1,19 @@
+\ProvidesPackage{replaceabledate}
+
+\newcommand\replacabledatename[1]{
+	replaceableDate@#1\number\value{replaceableDateCounter@#1}
+}
+
+\newcommand\newreplacabledate[4]{
+	\@ifundefined{c@replaceableDateCounter@#1}
+		{\newcounter{replaceableDateCounter@#1}}
+		{\stepcounter{replaceableDateCounter@#1}}
+	\newdate{\replacabledatename{#1}}{#2}{#3}{#4}
+}
+
+\DeclareOption*{
+	\PassOptionsToPackage{\CurrentOption}{datetime}
+}
+\ProcessOptions*
+
+\RequirePackage{datetime}
