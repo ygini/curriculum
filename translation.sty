@@ -1,6 +1,37 @@
+%%%%%%%%%%%%%%%
+% Translation %
+%%%%%%%%%%%%%%%
+
+%% Allow to use different languages in the same document and only print the right one in the PDF.
+%% Automatically provides the babel package.
+%%
+%% Create commands for each used language :
+%
+% \usepackage[british,french]{translation}
+% \french{Traduction}
+% \british{Translation}
+%
+%% It's possible to create alias to another language :
+%
+% \usepackage[british]{translation}
+% \translationAlias{english}{british} %% Enable the \english command
+% \english{Translation}
+%
+%% To select the current language :
+%
+% \usepackage[british,french]{translation}
+% \translation{french} %% Will print the document with french translations
+% \french{Traduction}
+% \british{Translation}
+%
+
 \ProvidesPackage{translation}
 
-%Selects document language
+%% Select document language.
+%% This will also disable other languages.
+%
+% \translation{french} %% Will print the document with french translations
+%
 \newcommand{\translation}[1]{
 	\edef\@temp{\csname#1@name\endcsname}
 	\AtBeginDocument{
@@ -11,22 +42,31 @@
 	}
 }
 
-%Create an alias of the second argument named with the first argument
+%% Create an alias of the second argument named with the first argument
+%
+% \translationAlias{english}{british} %% Enable the \english command calling \british
+%
 \newcommand{\translationAlias}[2]{
-	%Defines the name corresponding to the aliased language (the original name)
+	%% Define the name corresponding to the aliased language (the original name)
 	\expandafter\edef\csname#1@name\endcsname{\csname#2@name\endcsname}
-	%Defines the command corresponding to the aliased language (the original name)
+	%% Define the command corresponding to the aliased language (the original name)
 	\expandafter\newcommand\expandafter{\csname#1\endcsname}[1]{\expandafter{\csname#2\endcsname{##1}}}
 }
 
+%% Create a command for each available language in the document
+%
+% \usepackage[british,french]{translation}
+% \french{Traduction}
+% \british{Translation}
+%
 \DeclareOption*{
-	%Add the option as a language
+	%% Add the option as a "babel" language
 	\PassOptionsToPackage{\CurrentOption}{babel}
 	\edef\@currentLanguage{\CurrentOption}
 
-	%Defines the name corresponding to the current language (french, british, ...)
+	%% Define the name corresponding to the current language (french, british, ...)
 	\expandafter\edef\csname\CurrentOption @name\endcsname{\expandafter\CurrentOption}
-	%Defines the command corresponding to the current language (\french, \british, ...)
+	%% Define the command corresponding to the current language (\french, \british, ...)
 	\expandafter\edef\csname\CurrentOption\endcsname#1{%
 		\noexpand\iflanguage{\expandafter\CurrentOption}{#1}{}%
 	}%
