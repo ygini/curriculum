@@ -3,11 +3,13 @@
 %%%%%%%%%%%%%%%%%
 \newdateformat{experienceDate}{\monthname[\THEMONTH] \THEYEAR}
 
+%% Text used if no "experienceEnd" is specified
 \newcommand\currentJobEndDate{%
 	\french{actuel}%
 	\english{Current}%
 }
 
+%% Display dates based on presence and content of experienceStart and experienceEnd
 \newcommand\experienceSpan{
 	\experienceDate\displaydate{\replacabledatename{experienceStart}} - %
 	\ifnum \getdateyear{\replacabledatename{experienceEnd}}=1%
@@ -17,6 +19,22 @@
 	\fi%
 }
 
+%%%%%%%%%%%%%%
+% Experience %
+%%%%%%%%%%%%%%
+%% Define the experience start and end days
+%% Format is {day}{month}{year}
+%% An experienceEnd set to 1/1/1 represents a current job.
+%\newreplacabledate{experienceStart}{1}{10}{2010}
+%\newreplacabledate{experienceEnd}{1}{1}{1}
+
+%% CV entry (one for each job and each language)
+%% Format is {job description}{company}{City}{Country}
+%\english{
+%\cventry{\experienceSpan}{Java/JEE/Spring developer/trainer}{Zenika}{Paris}{France}{
+%% content
+%}
+%}
 
 %%%%%%%%%%
 % Zenika %
