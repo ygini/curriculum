@@ -1,9 +1,37 @@
+%%%%%%%%%%%%%%%%%%%
+% ReplaceableDate %
+%%%%%%%%%%%%%%%%%%%
+
+%% Allow to use a same date variable name multiple times.
+%% Automatically provides the datetime package.
+%%
+%% Usually it isn't possible to create a date two times with the same name :
+%
+% \newdate{name}{1}{1}{1}
+% \displaydate{name}
+% \newdate{name}{2}{2}{2}
+% \displaydate{name}
+%
+%% The previous command won't probably print the expected result, because the variable can't be defined twice.
+%% With counters this package will allow to reuse a variable name :
+%
+% \newreplacabledate{name}{1}{1}{1}
+% \displaydate{\replacabledatename{name}}
+% \newreplacabledate{name}{2}{2}{2}
+% \displaydate{\replacabledatename{name}}
+%
 \ProvidesPackage{replaceabledate}
 
+%% Obtain the actual variable name : replaceableDate@name@number
 \newcommand\replacabledatename[1]{
 	replaceableDate@#1\number\value{replaceableDateCounter@#1}
 }
 
+%% Set or replace a variable
+%%
+%% Create a counter "replaceableDateCounter@name" for the given variable name or increment it, if it already exists.
+%% The counter will help to create variables "replaceableDate@name@1", "replaceableDate@name@2", etc. to store new values
+%% The current value will always be "replaceableDate@name@counter"
 \newcommand\newreplacabledate[4]{
 	\@ifundefined{c@replaceableDateCounter@#1}
 		{\newcounter{replaceableDateCounter@#1}}
