@@ -1,11 +1,15 @@
 \documentclass[11pt,a4paper]{moderncv}
 \moderncvtheme[blue]{classic}
 \usepackage[utf8]{inputenc}
+%% Available languages, used to create commands \language
 \usepackage[british,french]{translation}
 \usepackage[nodayofweek]{replaceabledate}
 
+%% Create an alias from \english to \british
 \translationAlias{english}{british}
+%% Set current language (used to generate the PDF)
 \translation{english}
+%\translation{french}
 
 %%%%%%%%%%%%%%%%%
 % Personal data %
@@ -24,6 +28,10 @@
 %\homepage{www.github.com/colinhebert}
 \photo{includes/photo}
 
+
+%%%%%%%%%%%%%%%%%%
+% Actual content %
+%%%%%%%%%%%%%%%%%%
 \begin{document}
 \maketitle
 
